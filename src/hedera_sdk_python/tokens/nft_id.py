@@ -1,5 +1,8 @@
 import re
 
+# FIXME: for some reason just doing hedera_sdk_python... is broken
+#  I tried re-downloading the sdk and doing it from scratch but it still
+#  is broken... going to leave it for now, will ask around before doing anything
 from src.hedera_sdk_python.hapi.services import basic_types_pb2
 from src.hedera_sdk_python.tokens.token_id import TokenId
 
@@ -90,8 +93,6 @@ class NftId:
         self.is_valid()
         return f"NftId({str(self)})"
 
-    # NOTE: TokenId did not have an __eq__ method, added one
-    #
     # NOTE: Not sure if I should be checking for is_valid() everywhere
     #  but its probably not a bad idea
     def __eq__(self, other):
