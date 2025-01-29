@@ -321,7 +321,6 @@ wheels = [
 
 [[package]]
 name = "hedera-sdk-python"
-version = "0.1.dev91+gd172e1a.d20241220"
 source = { editable = "." }
 dependencies = [
     { name = "cryptography" },
