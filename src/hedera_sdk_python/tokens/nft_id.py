@@ -1,8 +1,8 @@
-from dataclasses import dataclass
 import re
 
 from hedera_sdk_python.hapi.services import basic_types_pb2
 from hedera_sdk_python.tokens.token_id import TokenId
+from dataclasses import dataclass
 
 @dataclass(frozen=True, init=True, repr=True, eq=True)
 class NftId:
