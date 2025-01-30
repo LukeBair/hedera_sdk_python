@@ -67,3 +67,6 @@ class TokenId:
         elif self.num != other.num:
             return False
         return True
+
+    def __hash__(self):
+        return hash((self.shard, self.realm, self.num))
