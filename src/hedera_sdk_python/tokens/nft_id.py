@@ -1,28 +1,18 @@
 import re
 
-# FIXME: for some reason just doing hedera_sdk_python... is broken
-#  I tried re-downloading the sdk and doing it from scratch but it still
-#  is broken... going to leave it for now, will ask around before doing anything
 from src.hedera_sdk_python.hapi.services import basic_types_pb2
 from src.hedera_sdk_python.tokens.token_id import TokenId
 
 class NftId:
     def __init__(self, token_id=None, serial_number=0):
-        if token_id is None:
-            raise TypeError("token_id is required")
-        if not isinstance(token_id, TokenId):
-            raise TypeError(f"token_id must be of type TokenId, got {type(token_id)}")
-        if not isinstance(serial_number, int):
-            raise TypeError(f"Expected an integer for serial_number, got {type(serial_number)}")
-        if serial_number < 0:
-            raise ValueError("serial_number must be positive")
-
         self.tokenId = token_id
         self.serialNumber = serial_number
 
+        self.is_valid()
+
     # NOTE: there is a validate function in the go sdk,
     #  also some validate checksums (???) in others not mentioned
-    #  in the protobuf or hedera docs, this may be misleading
+    #  in the protobuf or hedera docs, this (is_valid()) may be misleading
     def is_valid(self):
         if self.tokenId is None:
             raise TypeError("token_id is required")
@@ -93,8 +83,6 @@ class NftId:
         self.is_valid()
         return f"NftId({str(self)})"
 
-    # NOTE: Not sure if I should be checking for is_valid() everywhere
-    #  but its probably not a bad idea
     def __eq__(self, other):
         """
         :param other: The other NftId object
