@@ -1,8 +1,8 @@
 import pytest
 
-from src.hedera_sdk_python.tokens.nft_id import NftId
-from src.hedera_sdk_python.tokens.token_id import TokenId
-from src.hedera_sdk_python.hapi.services import basic_types_pb2
+from hedera_sdk_python.tokens.nft_id import NftId
+from hedera_sdk_python.tokens.token_id import TokenId
+from hedera_sdk_python.hapi.services import basic_types_pb2
 
 
 def test_nft_id():
