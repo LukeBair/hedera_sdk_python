@@ -6,6 +6,11 @@ from hedera_sdk_python.tokens.token_id import TokenId
 
 @dataclass(frozen=True, init=True, repr=True, eq=True)
 class NftId:
+    """
+    A unique identifiers for Non-Fungible Tokens (NFTs).
+    The NftId has a TokenId, and a serial number.
+    """
+
     tokenId: TokenId
     serialNumber: int
 
