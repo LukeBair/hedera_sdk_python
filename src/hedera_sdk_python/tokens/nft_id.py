@@ -1,7 +1,7 @@
 import re
 
-from src.hedera_sdk_python.hapi.services import basic_types_pb2
-from src.hedera_sdk_python.tokens.token_id import TokenId
+from hedera_sdk_python.hapi.services import basic_types_pb2
+from hedera_sdk_python.tokens.token_id import TokenId
 
 class NftId:
     def __init__(self, token_id=None, serial_number=0):
